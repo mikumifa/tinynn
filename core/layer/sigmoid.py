@@ -3,8 +3,9 @@ import numpy as np
 
 
 class Sigmoid(Layer):
+
     def __init__(self):
-        self.dz = None
+        super().__init__()
         self.output = None
 
     def forward(self, x):
@@ -13,7 +14,6 @@ class Sigmoid(Layer):
 
     def backward(self, x):
         def sigmoid_d(y):
-            return y(1 - y)
+            return y * (1 - y)
 
-        self.dz = sigmoid_d(self.output)*x
-        return self.dz
+        return sigmoid_d(self.output) * x

@@ -1,10 +1,16 @@
 from abc import ABCMeta, abstractmethod
 
 
-class Layer():
-    @abstractmethod
+class Layer:
     def __init__(self):
-        pass
+        self.params = {
+            'w': 0,
+            "b": 0
+        }
+        self.grads = {
+            'w': 0,
+            "b": 0
+        }
 
     @abstractmethod
     def forward(self, x):
